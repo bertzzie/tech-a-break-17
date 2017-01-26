@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PWA at Tokopedia's Mobile Site</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,700,700i%7CMaitree:200,300,400,600,700&amp;subset=latin-ext" rel="stylesheet">
+    
+    <!-- CSS Base -->
+    <link rel="stylesheet" type='text/css' media='all' href="css/base.css">
+    
+    <!-- CSS Colors -->
+    <link rel="stylesheet" type='text/css' media='all' href="css/colors.css">
+    
+    <!-- Optional - CSS SVG Icons (Font Awesome) -->
+    <link rel="stylesheet" type='text/css' media='all' href="css/svg-icons.css">
+
+    <!-- FACEBOOK -->
+    <meta property="og:url" content="http://your-url.com/"> <!-- YOUR URL -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Tech A Break #17: Progressive Web Apps - Experiences and challange on m.tokopedia.com"> <!-- EDIT -->
+    <meta property="og:description" content="Presentation on the challange and experience in building Tokopedia's mobile site is developed as a Progressive Web Application'"> <!-- EDIT -->
+    <meta property="og:updated_time" content="2017-01-26T17:10:00"> <!-- EDIT -->
+    <meta property="og:image" content="images/share-image.png"> <!-- EDIT -->
+    
+    <!-- TWITTER -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@tokopedia"> <!-- EDIT -->
+    <meta name="twitter:creator" content="@bertzzie"> <!-- EDIT -->
+    <meta name="twitter:title" content="Tech A Break #17: Progressive Web Apps - Experiences and challange on m.tokopedia.com"> <!-- EDIT -->
+    <meta name="twitter:description" content="Presentation on the challange and experience in building Tokopedia's mobile site is developed as a Progressive Web Application'"> <!-- EDIT -->
+    <meta name="twitter:image" content="images/share-image.png"> <!-- EDIT -->
+
+    <!-- FAVICONS -->
+    <link rel="shortcut icon" sizes="16x16" href="images/favicons/favicon.png">
+    <link rel="shortcut icon" sizes="32x32" href="images/favicons/favicon-32.png">
+    <link rel="apple-touch-icon icon" sizes="76x76" href="images/favicons/favicon-76.png">
+    <link rel="apple-touch-icon icon" sizes="120x120" href="images/favicons/favicon-120.png">
+    <link rel="apple-touch-icon icon" sizes="152x152" href="images/favicons/favicon-152.png">
+    <link rel="apple-touch-icon icon" sizes="180x180" href="images/favicons/favicon-180.png">
+    <link rel="apple-touch-icon icon" sizes="192x192" href="images/favicons/favicon-192.png">
+    
+    <!-- Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#333333">
+</head>
+<body>
+    <header class="bg-white" role="banner">
+        <nav role="navigation">
+            <p class="logo">
+                <a href="https://goo.gl/Mc4idk" title="Tech A Break 17" target="_blank">Tech a Break #17</a>
+            </p>
+            <ul>
+            <li class="github">
+                <a rel="external" href="https://github.com/bertzzie" title="Github" target="_blank">
+                <svg class="fa-github">
+                    <use xlink:href="#fa-github"></use>
+                </svg>
+                <em>@bertzzie</em>
+                </a>
+            </li>
+            <li class="twitter">
+                <a rel="external" href="https://twitter.com/bertzzie" title="Twitter" target="_blank">
+                <svg class="fa-twitter">
+                    <use xlink:href="#fa-twitter"></use>
+                </svg>
+                <em>@bertzzie</em>
+                </a>
+            </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main role="main">
+        <article id="webslides" class="bg-apple">
+            <section>
+                <h1>Progressive Web Apps</h1>
+                <p>Experiences and challange on <a href='https://m.tokopedia.com'>m.tokopedia.com</a></p>
+            </section>
+
+            <section>
+                <div class="wrap grid">
+                    <div class="column">
+                        <ul class="flexblock specs">
+                            <li>
+                                <div>
+                                    <h2>Reliable</h2>
+                                    Load instantly even in uncertain network conditions.
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <h2>Fast</h2>
+                                    Respond quickly, smooth animation
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <h2>Engaging</h2>
+                                    Feels like app!
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="column">
+                        <img src="images/pwa-intro.png" alt="3 PWA UX" class="alignright size-100">
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h1>Reliability</h1>
+                <p>Load instantly and never show the downasaur, even in uncertain network conditions.</p>
+            </section>
+
+            <section class="no-pad">
+                <div class="grid vertical-align">
+                    <div class="column no-pad-img">
+                        <img src="images/offline-1.png" alt="Downasour" class="alignleft no-margin">
+                    </div>
+                    <div class="column no-pad-text">
+                        <h3 style="text-align: center">:(</h3>
+                    </div>
+                </div>
+            </section>
+
+            <section class="no-pad">
+                <div class="grid vertical-align">
+                    <div class="column no-pad-img">
+                        <img src="images/offline-2.png" alt="Offline Mode" class="alignleft no-margin">
+                    </div>
+                    <div class="column no-pad-text">
+                        <h3 style="text-align: center">:D</h3>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>How?</h2>
+
+                <ul>
+                    <li>Service Worker</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>How?</h2>
+
+                <ul>
+                    <li>Service Worker</li>
+                    <li><code>window.addEventListener('online', ...</code></li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>How?</h2>
+
+                <ul>
+                    <li>Service Worker</li>
+                    <li><code>window.addEventListener('online', ...</code></li>
+                    <li><code>window.addEventListener('offline', ...</code></li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>How?</h2>
+
+                <ul>
+                    <li>Service Worker</li>
+                    <li><code>window.addEventListener('online', ...</code></li>
+                    <li><code>window.addEventListener('offline', ...</code></li>
+                    <li>Indexed DB</li>
+                </ul>
+            </section>
+
+            <section class="slide-top bg-black">
+                <span class="background light" style="background-image: url('images/routing.jpg')"></span>
+                <div class="wrap content-center">
+                    <h1>Reliability Challange 1:</h1>
+                    <h2>routing</h2>
+                </div>
+            </section>
+
+            <section>
+                <div class="content-center">
+                    <h1>Reliability Challange 2</h1>
+                    <h3>GraphQL + service-worker.js = ?</h3>
+                </div>
+            </section>
+
+            <section>
+                <h1>Fast</h1>
+                <p>Respond quickly to user interactions with silky smooth animations and no janky scrolling.</p>
+            </section>
+
+            <section>
+                <h2>How?</h2>
+
+                <ul>
+                    <li>Profile, profile, profile!</li>
+                </ul>
+            </section>
+
+            <section>
+                <span class="background" id="profiler"></span>
+            </section>
+
+            <section>
+                <h2>How?</h2>
+
+                <ul>
+                    <li>Profile, profile, profile!</li>
+                    <li>Minimize network roundtrip</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>How?</h2>
+
+                <ul>
+                    <li>Profile, profile, profile!</li>
+                    <li>Minimize network roundtrip</li>
+                    <li>Don't do a lot of things!</li>
+                </ul>
+            </section>
+
+            <section class="bg-apple">
+                <div class="wrap size-50">
+                    <blockquote class="wall">
+                        <p>"The cheapest, fastest, and most reliable components are those that aren’t there."</p>
+                        <p>
+                            <cite>Gordon Bell</cite>
+                        </p>
+                    </blockquote>
+                </div>
+            </section>
+
+            <section>
+                <h2>How?</h2>
+
+                <ul>
+                    <li>Profile, profile, profile!</li>
+                    <li>Minimize network roundtrip</li>
+                    <li>Don't do a lot of things!</li>
+                    <li>Cache, cache, cache!</li>
+                </ul>
+            </section>
+
+            <section>
+                <div class="content-center">
+                    <h1>Performance Challange 1:</h1>
+                    <h2>Network</h2>
+                </div>
+            </section>
+
+            <section>
+                <div class="content-center">
+                    <h1>Performance Challange 2:</h1>
+                    <h2>APIs, libraries, frameworks</h2>
+                </div>
+            </section>
+
+            <section>
+                <div class="wrap">
+                    <div class="content-center">
+                        <h2>Performance Challange 3:</h2>
+                        <blockquote>
+                            <p>"There are only two hard things in Computer Science: cache invalidation and naming things."</p>
+                            <p>
+                                <cite>Phil Karlton</cite>
+                            </p>
+                        </blockquote>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h1>Engaging</h1>
+                <p>Feel like a natural app on the device, with an immersive user experience.</p>
+            </section>
+
+            <section>
+                <h2>How?</h2>
+
+                <ul>
+                    <li>CSS3 Animation + Transition</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>How?</h2>
+
+                <ul>
+                    <li>CSS3 Animation + Transition</li>
+                    <li>Custom Event</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>How?</h2>
+
+                <ul>
+                    <li>CSS3 Animation + Transition</li>
+                    <li>Custom Event</li>
+                    <li>Attentive UI and UX design</li>
+                </ul>
+            </section>
+
+            <section>
+                <div class="content-center">
+                    <h1>Engagement Challange</h1>
+                    <h4>Sometimes directly clashes with performance</h4>
+                </div>
+            </section>
+
+            <section>
+                <div class="content-center">
+                    <h1>Ultimate Challange</h1>
+                    <h4>Old Browsers (Android Browser < 5)</h4>
+                    <h4>Proxy Browsers (UC Browser, Opera Mini)</h4>
+                </div>
+            </section>
+
+            <section>
+                <h1>Q &amp; A</h1>
+            </section>
+
+            <section>
+                <h1>Thank you!</h1>
+            </section>
+        </article>
+    </main>
+
+        <!-- jQuery (required for slides to work) -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="js/webslides.js"></script>
+    
+    <!-- OPTIONAL - svg-icons.js (fontastic.me - Font Awesome as svg icons) -->
+    <script defer src="js/svg-icons.js"></script>
+</body>
+</html>

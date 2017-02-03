@@ -6,5 +6,6 @@ Created using [WebSlides](https://github.com/jlantunez/webslides/)
 Tokopedia
 
 Team: 
+Alex
 Kemal
 Danny

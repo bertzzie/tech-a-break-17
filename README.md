@@ -2,7 +2,7 @@
 
 Testing
 
-# How to Code
+# update readme
 Tokopedia
 
 Danny

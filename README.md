@@ -2,4 +2,4 @@
 
 Created using [WebSlides](https://github.com/jlantunez/webslides/)
 
-## How to Run
+# How to View

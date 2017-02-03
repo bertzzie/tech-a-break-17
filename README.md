@@ -5,4 +5,7 @@ Testing
 # update readme
 Tokopedia
 
+Team: 
+Alex
+Kemal
 Danny

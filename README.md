@@ -2,6 +2,6 @@
 
 Created using [WebSlides](https://github.com/jlantunez/webslides/)
 
-# How to View
+## How to View
 
-Install a http server, and open the file via your server.
+- Placeholder Text - kemal
